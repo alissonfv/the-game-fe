@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import React from 'react'
+import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
 import './App.css';
+
+import LayoutTheGame from './components/layout';
+import LoginUser from './components/login';
+import Task from './components/task';
+import { isAuth } from './utils/auth';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <LayoutTheGame>
+      <Router>
+        <Switch>
+          <Route path='/' render = {()=>
+            isAuth() ? (<Task/>) : (<Redirect to ='/'/>)
+          }/>
+          <Route path='/'>
+            <LoginUser/>
+          </Route>
+        </Switch>
+      </Router>
+    </LayoutTheGame>
   );
 }
 
