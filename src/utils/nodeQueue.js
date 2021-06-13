@@ -5,6 +5,7 @@ class Queue {
     constructor() {
         this.begin = null;
         this.end = null;
+        this.quantity = 0
     }
 
     inserting(element) {
@@ -15,16 +16,21 @@ class Queue {
             new_node.setNext(this.end);
         }
         this.end = new_node;
+        this.quantity++;
     }
 
     removing() {
         this.begin = this.begin.getNext();
+        this.quantity--;
     }
 
     next() {
         return this.begin.getData();
     }
 
+    getQuantity() {
+        return this.quantity;
+    }
 };
 
 export default Queue;
