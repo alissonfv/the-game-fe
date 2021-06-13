@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import {loginRequest} from '../pages/login/service/LoginService'
-import { useHistory } from 'react-router-dom';
 
 export default function LoginUser() {
-    const history = useHistory();
     
     const [login, setLogin] = useState(null);
     const [password, setPassword] = useState(null);
