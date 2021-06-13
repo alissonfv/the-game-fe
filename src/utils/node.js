@@ -1,13 +1,8 @@
 class Node {
-    constructor() {
-        this.data;
-        this.next;
-    }
-
-    createNode(data) {
+    constructor(data) {
         this.data = data;
         this.next = null;
-    } 
+    }
 
     getNext() {
         return this.next;
