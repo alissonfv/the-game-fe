@@ -4,13 +4,17 @@ export function loginRequest(username, password) {
         if (username === null || password === null) {
                 window.location.href = '/';
         } else {
+                const bodyRequest = {
+                        login: username,
+                        password: password 
+                };
                 const url = 'http://localhost:8060/v1/login';
                 const options = {
                         method: 'post',
-                        body: {
-                                user: username,
-                                password: password
-                        }
+                        headers: {
+                                'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(bodyRequest)
                 };
 
                 fetch(url, options).then(res => {
