@@ -1,7 +1,6 @@
 import React from 'react'
 import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
-import './App.css';
-
+import './index.css';
 import LayoutTheGame from './components/layout';
 import LoginUser from './components/login';
 import Task from './components/task';
@@ -12,11 +11,11 @@ function App() {
     <LayoutTheGame>
       <Router>
         <Switch>
-          <Route path='/' render = {()=>
+          <Route path='/123' render = {()=>
             isAuth() ? (<Task/>) : (<Redirect to ='/'/>)
           }/>
           <Route path='/'>
-            <LoginUser/>
+            <LoginUser></LoginUser>
           </Route>
         </Switch>
       </Router>
