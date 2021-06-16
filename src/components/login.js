@@ -4,7 +4,7 @@ import {loginRequest} from '../pages/login/service/LoginService'
 import '../index.css';
 import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 
-export default function LoginUser() {
+export default function loginUser() {
 
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');

@@ -3,7 +3,7 @@ import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import {loginRequest} from '../pages/login/service/LoginService'
 import '../index.css';
 
-export default function LoginUser() {
+export default function informationLogin() {
 
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
