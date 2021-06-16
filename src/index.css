@@ -1,13 +1,67 @@
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image:url('./images/foto.jpeg.jpg');
+  background-repeat: no-repeat;
+  background-size:cover; 
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.bgimg{
+  /* background-color: red; */
+  padding-right: 65px; 
+  min-height: 500px;
+  max-height: 100%;
+}
+.bgbuttons{
+  position: relative;
+  left: 45%;
+  margin: auto;
+  padding:auto;
+  padding-top: 205px; 
+  padding-left: 05px; 
+}
+
+/* preciso do rgb */
+.footer {
+  background:darkcyan;
+  width: 100%;
+  height: 28px;
+  display: flex;
+  position: absolute;
+  background-position-y: bottom;
+  bottom: 0;
+  left: 0;
+  padding-left: 42%;
+  color: 1px solid black;
+  font-size: 20px;
+}
+
+.inform{
+  position: relative;
+  margin: auto;
+  padding:auto;
+  padding-top: 105px; 
+  padding-left: 285px; 
+  padding-right: 305px; 
+  min-height: 500px;
+  max-height: 100%;
+  text-align: center;
+}
+
+
+.textArea{
+  position: relative;
+  margin: auto;
+  padding:auto;
+  text-align: center;
+  padding-bottom: 130px;
+}
+
+
+  
