@@ -17,7 +17,7 @@ export default function rankingPanel() {
             <th>Classificação</th>
             <th>Username</th>
             <th>Nome</th>
-            <th>Sobrenome</th>
+            <th>Pontos</th>
           </tr>
         </thead>
         <tbody>
@@ -25,31 +25,31 @@ export default function rankingPanel() {
             <th scope="row">1°</th>
             <td>@VictorGeorges</td>
             <td>Victor Georges </td>
-            <td>Santos Elgamal</td>
+            <td>X</td>
           </tr>
           <tr>
             <th scope="row">2°</th>
             <td>@AndrewsVieira</td>
-            <td>Andrews Ray</td>
-            <td>de Assunção Vieira</td>
+            <td>Andrews Vieira</td>
+            <td>X</td>
           </tr>
           <tr>
             <th scope="row">3°</th>
             <td>@AlissonVieira</td>
-            <td>Alisson Fernando</td>
-            <td>Vieira</td>
+            <td>Alisson Vieira</td>
+            <td>X</td>
           </tr>                
           <tr>
             <th scope="row">4°</th>
             <td>@JairSchwan</td>
-            <td>Jair José</td>
-            <td>Schwan</td>
+            <td>Jair </td>
+            <td>X</td>
           </tr>
           <tr>
             <th scope="row">5°</th>
             <td>@FIESC</td>
-            <td>Federação das Indústrias </td>
-            <td>Estado de Santa Catarina</td>
+            <td>Federação das Indústrias-SC </td>
+            <td>xx</td>
           </tr>
         </tbody>
       </Table>   
