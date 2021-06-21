@@ -4,41 +4,57 @@ import {loginRequest} from '../pages/login/service/LoginService'
 import '../index.css';
 import { InputGroup, InputGroupAddon, InputGroupText, Input, Table } from 'reactstrap';
 
-export default function LoginUser() {
+export default function rankingPanel() {
 
-    const [login, setLogin] = useState('');
-    const [password, setPassword] = useState('');
+    // const [login, setLogin] = useState('');
+    // const [password, setPassword] = useState('');
 
     return (
-        <div className="bgimg">
-            <Container>
-                <Form>
-                    <Col>
-                    <div className="bgbuttons">
-
-                        <Row xs="auto" className="mb-3 w-25">
-                            <Form.Control type="text" onChange={ e => setLogin(e.target.value) } maxLength={30} placeholder="Login" />
-                        </Row>
-                        <Row xs="auto" className="mb-3 w-25">
-                            <Form.Control type="password" onChange={ e => setPassword(e.target.value) } placeholder="Senha" />
-                        </Row>
-                        <Row>
-                            <Col xs="auto" className="my-2" >
-                                <Button variant="light" onClick={ () => loginRequest(login, password) }>Entrar</Button>
-                            </Col>
-                            <Col xs="auto" className="my-2">
-                                <Button variant="light" type="submit">Criar Conta</Button>
-                            </Col>
-                        </Row>
-                     </div>   
-                    </Col>
-                </Form>
-            </Container>
-            <div className="footer">
-            <p> CopyRight TheGameDosGuri © </p>
-            </div>    
+        
+        <div className="rankingPanel" xs="auto" >
+            <Table xs="auto" >
+              <thead>
+                <tr>
+                  <th>Classificação</th>
+                  <th>Username</th>
+                  <th>Nome</th>
+                  <th>Sobrenome</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1°</th>
+                  <td>@VictorGeorges</td>
+                  <td>Victor Georges </td>
+                  <td>Santos Elgamal</td>
+                </tr>
+                <tr>
+                  <th scope="row">2°</th>
+                  <td>@AndrewsVieira</td>
+                  <td>Andrews Ray</td>
+                  <td>de Assunção Vieira</td>
+                </tr>
+                <tr>
+                  <th scope="row">3°</th>
+                  <td>@AlissonVieira</td>
+                  <td>Alisson Fernando</td>
+                  <td>Vieira</td>
+                </tr>                
+                <tr>
+                  <th scope="row">4°</th>
+                  <td>@JairSchwan</td>
+                  <td>Jair José</td>
+                  <td>Schwan</td>
+                </tr>
+                <tr>
+                  <th scope="row">5°</th>
+                  <td>@FIESC</td>
+                  <td>Federação das Indústrias </td>
+                  <td>Estado de Santa Catarina</td>
+                </tr>
+              </tbody>
+            </Table>   
         </div>
-
     );
 }
 

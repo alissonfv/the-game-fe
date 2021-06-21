@@ -47,6 +47,9 @@ export default function rankingPanel() {
                 </tr>
               </tbody>
             </Table>
+            <div className="footer">
+                <p> CopyRight TheGameDosGuri © </p>
+            </div>    
         </div>
     );
 }
