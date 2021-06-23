@@ -5,8 +5,6 @@ import '../index.css';
 
 export default function informationLogin() {
 
-    const [login, setLogin] = useState('');
-    const [password, setPassword] = useState('');
 
     return (
         <div className="bgimg">
@@ -32,10 +30,10 @@ export default function informationLogin() {
                         </Row>
                         <Row>
                             <Col xs="auto" className="my-2" >
-                                <Button variant="light" onClick={ () => loginRequest(login, password) }>Accessar</Button>
+                                <Button variant="light" >Acessar</Button>
                             </Col>
                             <Col xs="auto" className="my-2">
-                                <Button variant="light" type="submit">Criar Conta</Button>
+                                <Button variant="light">Cancelar</Button>
                             </Col>
                         </Row>
                      </div>   

@@ -6,9 +6,6 @@ import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 
 export default function questionPanel() {
 
-    const [login, setLogin] = useState('');
-    const [password, setPassword] = useState('');
-
     return (
       <div className="inform">
           <div className="textArea">
