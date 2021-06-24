@@ -3,9 +3,9 @@ import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import {loginRequest} from '../pages/login/service/LoginService'
 
 export default function LoginUser() {
-
-    const [login, setLogin] = useState('');
-    const [password, setPassword] = useState('');
+    
+    const [login, setLogin] = useState(null);
+    const [password, setPassword] = useState(null);
 
     return (
         <Container>
@@ -22,7 +22,7 @@ export default function LoginUser() {
                             <Button variant="light" onClick={ () => loginRequest(login, password) }>Entrar</Button>
                         </Col>
                         <Col xs="auto" className="my-1">
-                            <Button variant="light" type="submit">Criar Conta</Button>
+                            <Button variant="light">Criar Conta</Button>
                         </Col>
                     </Row>
                 </Col>
