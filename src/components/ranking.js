@@ -1,48 +1,25 @@
-import { React, useEffect, useState } from 'react';
+import { React, Component } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { getToken } from '../utils/auth';
-import Queue from '../utils/queue';
+import { rankingRequest } from '../pages/ranking/service/rankingService';
 
-export default  function Ranking() {
+const ranking = rankingRequest();
 
-    const rankingQueue = new Queue();
-
-    const url = 'http://localhost:8060/v1/rankings'
-    const token = getToken();
-    const options = {
-        method: 'get',
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
-    }
-
-    const [queue, setQueue] = useState(new Queue());
-
-    async function setDataInQueue(data){
-        data.forEach(element => {
-            rankingQueue.inserting(element);
-        });
-
-        setQueue(rankingQueue);
-    }
-    
-    useEffect(async () => {
-        let res = await fetch(url, options);
-        let data = await res.json();
+export default class Ranking extends Component {
+    constructor(props) {
+        super(props);
         
-        console.log(data);
-        await setDataInQueue(data);
+        this.state = ranking;
+        console.log(this.state);
+    }
 
-            console.log(`${rankingQueue.next()} elementos inseridos`);
-   }, []);
-
-
-
-    return (
-        <Container id="container">
-         { rankingQueue ? 
-         console.log("jair lindo", queue.next()) : console.log("jair gatao")
-        }
-        </Container>
-    );
+    render() {
+        return (
+            <Container>
+                <Row>
+                    <Col>Nome</Col>
+                    <Col>Pontos</Col>
+                </Row>
+            </Container>
+        );
+    }
 }
