@@ -5,20 +5,21 @@ import '../index.css';
 
 export default function Ranking() {
     const [ranking, setRanking] = useState([]);
+    const [option, setOption] = useState(1);
     useEffect(() => {
         async function getRanking() {
-            setRanking(await rankingRequest());
+            setRanking(await rankingRequest(option));
         }
         getRanking();
-    }, []);
+    }, [option]);
 
     return (
         <div className="rankingPanel" xs="auto" >
             <Table xs="auto" >
                 <thead>
-                    <tr>
-                        <th scope="row">Nome</th>
-                        <th scope="row">Pontuação</th>
+                    <tr >
+                        <th onClick={() => setOption(2)} scope="row" >Nome</th>
+                        <th onClick={() => setOption(1)} scope="row">Pontuação</th>
                     </tr>
                 </thead>
                 <tbody>

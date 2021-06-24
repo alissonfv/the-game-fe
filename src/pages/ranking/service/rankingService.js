@@ -1,8 +1,6 @@
 import { getToken } from "../../../utils/auth";
 
-export async function rankingRequest() {
-    let option = 1;
-
+export async function rankingRequest(option) {
     const url = `http://localhost:8060/v1/rankings/${option}`;
     const token = getToken();
     const options = {
