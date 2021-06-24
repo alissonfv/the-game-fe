@@ -1,5 +1,4 @@
 import { React, useEffect, useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
 import { rankingRequest } from '../pages/ranking/service/rankingService';
 
 
