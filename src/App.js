@@ -5,7 +5,7 @@ import LayoutTheGame from './components/layout';
 import LoginUser from './components/login';
 import CreateUser from './components/informationsLogin';
 import Questions from './components/question';
-import Task from './components/task';
+import Ranking from './components/ranking';
 import { isAuth } from './utils/auth';
 
 function App() {
@@ -13,8 +13,8 @@ function App() {
     <LayoutTheGame>
       <Router>
         <Switch>
-          <Route path='/123' render = {()=>
-            isAuth() ? (<Task/>) : (<Redirect to ='/'/>)
+          <Route path='/ranking' render = {()=>
+            isAuth() ? (<Ranking/>) : (<Redirect to ='/'/>)
           }/>
           <Route exact path='/'>
             <LoginUser></LoginUser>

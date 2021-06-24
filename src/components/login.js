@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { React, useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { loginRequest } from '../pages/login/service/LoginService.js'
 import { accountRequest } from '../pages/login/service/CreateUserService.js'
@@ -8,9 +8,9 @@ import '../index.css';
 
 
 export default function LoginUser() {
-
-    const [login, setLogin] = useState('');
-    const [password, setPassword] = useState('');
+    
+    const [login, setLogin] = useState(null);
+    const [password, setPassword] = useState(null);
 
     return (
         <div minDeviceWidth={1224} device={{ deviceWidth: 1600 }} className="bgimg">
