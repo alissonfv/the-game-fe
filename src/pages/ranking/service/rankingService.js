@@ -1,6 +1,6 @@
 import { getToken } from "../../../utils/auth";
 
-export function rankingRequest() {
+export async function rankingRequest() {
     let option = 1;
 
     const url = `http://localhost:8060/v1/rankings/${option}`;
@@ -14,27 +14,23 @@ export function rankingRequest() {
 
     let ranking = [];
 
-    fetch(url, options).then(res => {
-        return res.json();
-    }).then(data => {
-        let name;
-        let points;
-        let newState;
+    let res = await fetch(url, options);
+    let data = await res.json();
 
-        data.elements.forEach(element => {
-            name = element.user.name;
-            points = element.points;
+    let name;
+    let points;
+    let newState;
 
-            newState = {
-                name: name,
-                points: points
-            }
+    data.elements.forEach(element => {
+        name = element.user.name;
+        points = element.points;
 
-            ranking.push(newState);
-        });
-        console.log(ranking);
-        return ranking;
-    }).catch(err => {
-        console.log("[ERRO]\n", err);
+        newState = {
+            name: name,
+            points: points
+        }
+
+        ranking.push(newState);
     });
+    return ranking;
 }

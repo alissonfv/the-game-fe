@@ -1,25 +1,34 @@
-import { React, Component } from 'react';
+import { React, useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { rankingRequest } from '../pages/ranking/service/rankingService';
 
-const ranking = rankingRequest();
 
-export default class Ranking extends Component {
-    constructor(props) {
-        super(props);
-        
-        this.state = ranking;
-        console.log(this.state);
-    }
+export default function Ranking() {
+    const [ranking, setRanking] = useState([]);
+    useEffect(() => {
+        async function getRanking() {
+            setRanking(await rankingRequest());
+        }
+        getRanking();
+    }, []);
 
-    render() {
-        return (
-            <Container>
-                <Row>
-                    <Col>Nome</Col>
-                    <Col>Pontos</Col>
-                </Row>
-            </Container>
-        );
-    }
+
+    return (
+        <Container>
+            <table>
+                <tr>
+                    <th>Nome</th>
+                    <th>Pontuação</th>
+                </tr>
+                {ranking.map(res => {
+                    return (
+                        <tr>
+                            <td>{res.name}</td>
+                            <td>{res.points}</td>
+                        </tr>
+                    );
+                })}
+            </table>
+        </Container>
+    );
 }
