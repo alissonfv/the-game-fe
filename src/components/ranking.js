@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from 'react';
-import { Table,Navbar,NavbarBrand} from 'reactstrap';
+import { Table, Navbar, NavbarBrand } from 'reactstrap';
 import { rankingRequest } from '../pages/ranking/service/rankingService';
 import '../index.css';
 
@@ -13,32 +13,29 @@ export default function Ranking() {
     getRanking();
   }, [option]);
   return (
-
     <div>
-      <div>
-        <Navbar class="nav" color="info" light expand="md">
-          <NavbarBrand href="/question">Jogar</NavbarBrand>
-          <NavbarBrand href="/ranking">Ranking</NavbarBrand>
-        </Navbar>
-      </div>
-      <Table  className="rankingPanel" xs="auto" >
-        <thead>
-          <tr >
-            <th onClick={() => setOption(2)} scope="row" >Nome</th>
-            <th onClick={() => setOption(1)} scope="row">Pontuação</th>
-          </tr>
-        </thead>
-        <tbody>
-          {ranking.map(res => {
-            return (
-              <tr>
-                <td>{res.name}</td>
-                <td>{res.points}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </Table>
-    </div>
+        <Navbar>
+      <NavbarBrand href="/question">Jogar</NavbarBrand>
+      <NavbarBrand href="/ranking">Ranking</NavbarBrand>
+      </Navbar>
+    <Table className="rankingPanel" xs="auto" >
+      <thead>
+        <tr >
+          <th onClick={() => setOption(2)} scope="row" >Nome</th>
+          <th onClick={() => setOption(1)} scope="row">Pontuação</th>
+        </tr>
+      </thead>
+      <tbody>
+        {ranking.map(res => {
+          return (
+            <tr>
+              <td>{res.name}</td>
+              <td>{res.points}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </Table>
+    </div >
   );
 }

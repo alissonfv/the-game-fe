@@ -37,4 +37,3 @@ export async function questionRequestById (id){
     console.log(data);
     return data;
 }
-
