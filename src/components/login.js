@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import React, { useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { loginRequest } from '../pages/login/service/LoginService.js'
 import { accountRequest } from '../pages/login/service/CreateUserService.js'
@@ -8,9 +8,9 @@ import '../index.css';
 
 
 export default function LoginUser() {
-    
-    const [login, setLogin] = useState(null);
-    const [password, setPassword] = useState(null);
+
+    const [login, setLogin] = useState('');
+    const [password, setPassword] = useState('');
 
     return (
         <div minDeviceWidth={1224} device={{ deviceWidth: 1600 }} className="bgimg">
@@ -19,10 +19,10 @@ export default function LoginUser() {
                     <Col>
                         <div className="bgbuttons">
 
-                            <Row className="mb-3 w-25">
+                            <Row className="mb-3 w-150">
                                 <Form.Control type="text" onChange={e => setLogin(e.target.value)} maxLength={30} placeholder="Login" />
                             </Row>
-                            <Row className="mb-3 w-25">
+                            <Row className="mb-3 w-150">
                                 <Form.Control type="password" onChange={e => setPassword(e.target.value)} placeholder="Senha" />
                             </Row>
                             <Row>
