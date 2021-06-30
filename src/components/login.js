@@ -26,9 +26,6 @@ export default function LoginUser() {
                                 <Form.Control type="password" onChange={e => setPassword(e.target.value)} placeholder="Senha" />
                             </Row>
                             <Row>
-                                <Col xs="auto" className="my-2">
-                                    <Button variant="light" onClick={() => direto()}>Direto</Button>
-                                </Col>
                                 <Col xs="auto" className="my-2" >
                                     <Button variant="light" onClick={() => loginRequest(login, password)}>Entrar</Button>
                                 </Col>
