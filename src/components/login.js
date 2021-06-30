@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { loginRequest } from '../pages/login/service/LoginService.js'
-import { accountRequest } from '../pages/login/service/CreateUserService.js'
+import { redirectCreateAccount } from '../pages/login/service/CreateUserService.js'
 import { direto } from '../pages/login/service/EntraDireto.js'
 import '../index.css';
 
@@ -30,7 +30,7 @@ export default function LoginUser() {
                                     <Button variant="light" onClick={() => loginRequest(login, password)}>Entrar</Button>
                                 </Col>
                                 <Col xs="auto" className="my-2">
-                                    <Button variant="light" onClick={() => accountRequest()}>Criar Conta</Button>
+                                    <Button variant="light" onClick={() => redirectCreateAccount()}>Criar Conta</Button>
                                 </Col>
                             </Row>
                         </div>
