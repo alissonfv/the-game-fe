@@ -6,7 +6,7 @@ export function loginRequest(username, password) {
         } else {
                 const bodyRequest = {
                         login: username,
-                        password: password 
+                        password: password
                 };
                 const url = 'http://localhost:8060/v1/login';
                 const options = {
@@ -19,10 +19,15 @@ export function loginRequest(username, password) {
 
                 fetch(url, options).then(res => {
                         if (!res.ok) {
-                                console.log(res.status);
-                                alert(res.statusText);
+                                res.json().then(data => {
+                                        alert(data.message);
+                                        window.location.href = '/';
+                                }).catch(err => {
+                                        console.log(err);
+                                });
+                        } else {
+                                return res.json();
                         }
-                        return res.json();
                 }).then(data => {
                         login(data.token);
                         window.location.href = '/ranking';
