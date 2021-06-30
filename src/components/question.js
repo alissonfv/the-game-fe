@@ -38,8 +38,16 @@ export default function QuestionPanel() {
         </Navbar>
       </div>
       <div className="inform">
-      <Button onClick={ () => {
-              createAnswer(1)
+      <Button onClick={ async () => {
+             let data =  await createAnswer()
+              
+             console.log(data);
+
+              if(data.status === 200 ){
+                setQuestion(questionIdQueue.next())
+                console.log("atual", question);
+              }
+
               }}>Next</Button>
         <Jumbotron>
             <p className="questions">{question && question.question}</p>
@@ -54,6 +62,7 @@ export default function QuestionPanel() {
               </Label>
             </FormGroup>
             <Input className="alternativa" placeholder="Alternativa 2"  value={question
+             && question.alternatives
              && question.alternatives[0] 
               && question.alternatives[0].alternative}/>
           </InputGroup>
@@ -65,8 +74,9 @@ export default function QuestionPanel() {
               </Label>
             </FormGroup>
             <Input className="alternativa" placeholder="Alternativa 2"  value={question
-             && question.alternatives[1] 
-              && question.alternatives[1].alternative}/>
+             && question.alternatives
+             && question.alternatives[1]  
+             && question.alternatives[1].alternative}/>
           </InputGroup>
 
           <InputGroup>
@@ -76,8 +86,8 @@ export default function QuestionPanel() {
               </Label>
             </FormGroup>
             <Input className="alternativa" placeholder="Alternativa 3" value={question
-             && question.alternatives[2] 
-              && question.alternatives[2].alternative} />
+             && question.alternatives
+             && question.alternatives[2] && question.alternatives[2].alternative} />
           </InputGroup>
 
           <InputGroup>
@@ -87,7 +97,7 @@ export default function QuestionPanel() {
               </Label>
             </FormGroup>
             <Input className="alternativa" placeholder="Alternativa 4"
-            value={question
+            value={question  && question.alternatives
               && question.alternatives[3] 
                && question.alternatives[3].alternative} 
             />
@@ -101,7 +111,7 @@ export default function QuestionPanel() {
               </Label>
             </FormGroup>
             <Input className="alternativa" placeholder="Alternativa 5"
-              value={question
+              value={question  && question.alternatives
                 && question.alternatives[4] 
                  && question.alternatives[4].alternative} 
              />
