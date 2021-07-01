@@ -10,7 +10,7 @@ Alisson Vieira
 Jair Schwan
 Victor Georges.
 
-----------------------------------------------------------------------
+-----------------------------------------------------------------------
 O jogo The Game foi dividido em programa cliente e programa servidor.
 Esse projeto é o the-game-fe, sendo ele o programa cliente.
 
