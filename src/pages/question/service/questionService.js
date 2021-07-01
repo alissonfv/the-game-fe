@@ -14,10 +14,13 @@ export async function questionRequest (){
     let res = await fetch(url, options);
     let data = await res.json();
     let idQueue = new Queue(); 
-    
+    console.log("data", data);
+
     for (let i= 0; i < data.length;i++) {
+        console.log("inserindo", i);
         idQueue.inserting(data[i].id);
     };
+    console.log("idQueue", idQueue);
     return idQueue;
 }
 
@@ -34,6 +37,5 @@ export async function questionRequestById (id){
     let res = await fetch(url, options);
     let data = await res.json();
     
-    console.log(data);
     return data;
 }
