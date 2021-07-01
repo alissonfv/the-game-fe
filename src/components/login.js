@@ -36,9 +36,6 @@ export default function LoginUser() {
                     </Col>
                 </Form>
             </Container>
-            <div className="footer">
-                <p> CopyRight TheGameDosGuri © </p>
-            </div>
         </div>
 
     );
