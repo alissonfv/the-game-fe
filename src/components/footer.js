@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <div className="footer">
-            <p> CopyRight TheGameDosGuri © </p>
+            <p> Copyright The Game Solution © </p>
         </div>
     );
 }
