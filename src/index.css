@@ -61,8 +61,15 @@ code {
   margin: auto;
   padding:auto;
   text-align: center;
-  padding-top: 100px;
-}
+  margin-top: 250px;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.8;
+  font-weight: bold;
+  font-size: 25px;
+  color: #000000
+}	
 
 
   
