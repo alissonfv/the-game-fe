@@ -6,8 +6,11 @@ The Game. Educação em um click
 Integrantes:
 
  Andrews Vieira;
+
  Alisson Vieira;
+
  Jair Schwan;
+ 
  Victor Georges;
 
 -----------------------------------------------------------------------
@@ -23,15 +26,20 @@ PARA QUE SEJA POSSÍVEL EXECUTAR O PROJETO
 Para que seja executado é necessário que o gerenciado de pacotes do JavaScript -(NPM) esteja já instalado na máquina que será clonado esse repositório
 
 *(Instalação o gerenciador de pacotes do Node.JS-(NPM)
+
  npm install;  
 
 
 *(Instalação do framework reactstrap e bootstrap) 
- npm install reactstrap 
+
+ npm install reactstrap; 
+
  npm install --save bootstrap;
+
  npm install --save reactstrap react react-dom;
 
 *(Execução do React.JS)
+
  npm start;
 
 
