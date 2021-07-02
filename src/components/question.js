@@ -1,40 +1,27 @@
 import { React, useState, useEffect } from 'react';
 import { Navbar, NavbarBrand, Button } from 'react-bootstrap';
 import { createAnswer } from '../pages/answer/answerService/answerService'
-import { questionRequest, questionRequestById } from '../pages/question/service/questionService'
+import { questionRequest } from '../pages/question/service/questionService'
 import '../index.css';
 import { InputGroup, Label, InputGroupText, Input, FormGroup, Jumbotron } from 'reactstrap';
 import Queue from '../utils/queue';
 
 export default function QuestionPanel() {
 
-  const [questionIdQueue, setQuestionIdQueue] = useState(new Queue());
+  const [questions, setQuestions] = useState(new Queue());
   const [question, setQuestion] = useState();
   const [alternative, setAlternative] = useState(null);
-  const [id, setId] = useState();
 
   useEffect(() => {
-    console.log("linha 17-useEffect")
-    if (questionIdQueue.elements.length === 0) {
-      async function getQuestionIdQueue() {
-        setQuestionIdQueue(await questionRequest());
-        console.log("QUEUE", questionIdQueue)
-      }
-      console.log("Linha 22", id)
-      setId(questionIdQueue.next());
-      console.log("Linha 24", id)
-      getQuestionIdQueue();
-    } else {
-      async function getQuestionById() {
-        setQuestion(await questionRequestById(id));
-        console.log("Linha 31", id)
-        console.log("QUEUE", questionIdQueue)
-
-      }
-      getQuestionById();
+    async function getQuestions() {
+      setQuestions(await questionRequest());
+      console.log("QUESTIONS", questions);
+      console.log("NEXT", questions.next());
+      setQuestion(questions.next());
     }
-  }, [id]);
-  
+    getQuestions();
+  }, []);
+
   return (
     <div>
       <div className="cabecalho">
@@ -47,21 +34,21 @@ export default function QuestionPanel() {
       </div>
       <div className="inform">
         <Button onClick={async () => {
+          console.log("QUESTION", question);
           let data = await createAnswer()
 
           if (data.status === 200) {
-            console.log("Antes", questionIdQueue.next());
-            if (questionIdQueue.elements.length > 1) {
-              questionIdQueue.removing();
+            if (questions.elements.length > 1) {
+              questions.removing();
+              setQuestion(questions.next());
             };
-            console.log("Linha 54", id);
-            setId(questionIdQueue.next());
-            console.log("Linha 55", id);
           }
 
         }}>Next</Button>
         <Jumbotron>
-          <p className="questions">{question && question.question}</p>
+          <p className="questions">{
+            // question && question.question
+          }</p>
         </Jumbotron>
         <br /><br />
         <Jumbotron>
@@ -72,10 +59,8 @@ export default function QuestionPanel() {
                 <Input type="radio" name="radio1" />{' '}
               </Label>
             </FormGroup>
-            <Input className="alternativa" placeholder="Alternativa 2" value={question
-              && question.alternatives
-              && question.alternatives[0]
-              && question.alternatives[0].alternative} />
+            <Input className="alternativa" placeholder="Alternativa 2"
+            />
           </InputGroup>
 
           <InputGroup xs="auto">
@@ -84,10 +69,8 @@ export default function QuestionPanel() {
                 <Input type="radio" name="radio1" />{' '}
               </Label>
             </FormGroup>
-            <Input className="alternativa" placeholder="Alternativa 2" value={question
-              && question.alternatives
-              && question.alternatives[1]
-              && question.alternatives[1].alternative} />
+            <Input className="alternativa" placeholder="Alternativa 2"
+            />
           </InputGroup>
 
           <InputGroup>
@@ -96,9 +79,8 @@ export default function QuestionPanel() {
                 <Input type="radio" name="radio1" />{' '}
               </Label>
             </FormGroup>
-            <Input className="alternativa" placeholder="Alternativa 3" value={question
-              && question.alternatives
-              && question.alternatives[2] && question.alternatives[2].alternative} />
+            <Input className="alternativa" placeholder="Alternativa 3"
+            />
           </InputGroup>
 
           <InputGroup>
@@ -108,9 +90,7 @@ export default function QuestionPanel() {
               </Label>
             </FormGroup>
             <Input className="alternativa" placeholder="Alternativa 4"
-              value={question && question.alternatives
-                && question.alternatives[3]
-                && question.alternatives[3].alternative}
+
             />
           </InputGroup>
 
@@ -122,9 +102,7 @@ export default function QuestionPanel() {
               </Label>
             </FormGroup>
             <Input className="alternativa" placeholder="Alternativa 5"
-              value={question && question.alternatives
-                && question.alternatives[4]
-                && question.alternatives[4].alternative}
+
             />
           </InputGroup>
         </Jumbotron>
