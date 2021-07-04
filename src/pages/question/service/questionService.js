@@ -2,7 +2,7 @@ import { getToken } from "../../../utils/auth";
 import Queue from "../../../utils/queue";
 
 export async function questionRequest (){
-    const url = `http://localhost:8060/v1/questions`;
+    const url = `http://3.86.204.122:8060/v1/questions`;
     const token = getToken();
     const options = {
         method: 'get',
