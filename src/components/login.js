@@ -10,7 +10,6 @@ import '../index.css';
 export default function LoginUser() {
     const [login, setLogin] = useState(null);
     const [password, setPassword] = useState(null);
-
     return (
         <div minDeviceWidth={1224} device={{ deviceWidth: 1600 }} className="bgimg">
             <Container>
