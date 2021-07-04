@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import {FormGroup , FormFeedback, FormText} from 'reactstrap';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import {loginRequest} from '../pages/login/service/LoginService'
+import {loginRequest} from '../pages/login/service/LoginService';
 import '../index.css';
 
 export default function informationLogin() {
@@ -11,22 +12,19 @@ export default function informationLogin() {
             <Container>
                 <Form>
                     <Col xs="auto">
-                    <div className="bgbuttons">
-                            <Row xs="auto" className="mb-3 w-25">
-                            {/* necessita implementar o onChange={ e => setLogin(e.target.value) } no Form.Control corretamente */}
-                            <Form.Control type="text"  maxLength={30} placeholder="Nome" />
+                         <div className="bgbuttons">
+                        <Row xs="auto" className="mb-3 w-25">
+                            <Form.Control type="text"  maxLength={30} placeholder="Nome" required />
                         </Row>
                         <Row xs="auto" className="mb-3 w-25">
-                            {/* necessita implementar o onChange={ e => setLogin(e.target.value) } no Form.Control corretamente */}
-                            <Form.Control type="password" maxLength={30} placeholder="Login" />
+                            <Form.Control type="login" maxLength={30} placeholder="Login" required />
                         </Row>
                         <Row xs="auto" className="mb-3 w-25">
-                            {/* necessita implementar o onChange={ e => setLogin(e.target.value) } no Form.Control corretamente */}
-                            <Form.Control type="password" maxLength={30} placeholder="Senha" />
+                            <Form.Control type="password" maxLength={30} placeholder="Senha" required />
                         </Row>
                         <Row xs="auto" className="mb-3 w-25">
-                            {/* necessita implementar o onChange={ e => setLogin(e.target.value) } no Form.Control corretamente */}
-                            <Form.Control type="password" maxLength={30} placeholder="Confirmar Senha" />
+                            <Form.Control type="password" maxLength={30} placeholder="Confirmar Senha" required />
+                            <FormText tooltip>Senhas devem ser iguais</FormText>
                         </Row>
                         <Row>
                             <Col xs="auto" className="my-2" >
@@ -41,10 +39,9 @@ export default function informationLogin() {
                 </Form>
             </Container>
             <div className="footer">
-                <p> CopyRight TheGameDosGuri © </p>
+                <p> CopyRight The Game Solution © </p>
             </div>    
         </div>
-
     );
 }
 

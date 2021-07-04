@@ -1,13 +1,13 @@
 import { React, useState } from 'react';
+import {FormGroup , FormFeedback, FormText} from 'reactstrap';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { loginRequest } from '../pages/login/service/LoginService.js'
-import { redirectCreateAccount } from '../pages/login/service/CreateUserService.js'
+import { loginRequest } from '../pages/login/service/LoginService.js';
+import { redirectCreateAccount } from '../pages/login/service/CreateUserService.js';
 import '../index.css';
 
 
 
 export default function LoginUser() {
-    
     const [login, setLogin] = useState(null);
     const [password, setPassword] = useState(null);
 
@@ -17,12 +17,13 @@ export default function LoginUser() {
                 <Form>
                     <Col>
                         <div className="bgbuttons">
-
-                            <Row className="mb-3 w-25">
-                                <Form.Control type="text" onChange={e => setLogin(e.target.value)} maxLength={30} placeholder="Login" />
+                            <Row xs="auto" className="mb-3 w-25" >
+                                <Form.Control type="text" onChange={e => setLogin(e.target.value)} maxLength={30} placeholder="Login" required />
+                                <FormText tooltip>Campo obrigatório</FormText>
                             </Row>
-                            <Row className="mb-3 w-25">
-                                <Form.Control type="password" onChange={e => setPassword(e.target.value)} placeholder="Senha" />
+                            <Row xs="auto" className="mb-3 w-25">
+                                <Form.Control type="password" onChange={e => setPassword(e.target.value)} placeholder="Senha" required />
+                                <FormText tooltip>Campo obrigatório</FormText>
                             </Row>
                             <Row>
                                 <Col xs="auto" className="my-2" >
