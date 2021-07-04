@@ -1,3 +1,3 @@
-export function accountRequest() {
+export function redirectCreateAccount() {
     window.location.href = '/createAccount';
 }

@@ -22,9 +22,9 @@ function App() {
           <Route exact path='/createAccount'>
             <CreateUser></CreateUser>
           </Route>
-          <Route exact path='/question'>
-            <Questions></Questions>
-          </Route>
+          <Route path='/question' render = {()=>
+            isAuth() ? (<Questions/>) : (<Redirect to ='/'/>)
+          }/>
         </Switch>
       </Router>
     </LayoutTheGame>
