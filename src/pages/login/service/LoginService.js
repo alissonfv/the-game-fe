@@ -8,7 +8,7 @@ export function loginRequest(username, password) {
                         login: username,
                         password: password
                 };
-                const url = 'http://127.0.0.1:8060/v1/login';
+                const url = 'http://3.86.204.122:8060/v1/login';
                 const options = {
                         method: 'post',
                         headers: {
