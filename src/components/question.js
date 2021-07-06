@@ -1,10 +1,11 @@
 import { React, useState, useEffect } from 'react';
-import { Navbar, NavbarBrand, Button } from 'react-bootstrap';
+import { Container, Navbar, NavbarBrand, Button } from 'react-bootstrap';
 import { createAnswer } from '../pages/answer/answerService/answerService'
 import { questionRequest } from '../pages/question/service/questionService'
 import '../index.css';
 import { InputGroup, Label, InputGroupText, Input, FormGroup, Jumbotron } from 'reactstrap';
 import Queue from '../utils/queue';
+import Header from './header';
 
 export default function QuestionPanel() {
 
@@ -23,15 +24,8 @@ export default function QuestionPanel() {
   }, []);
 
   return (
-    <div>
-      <div className="cabecalho">
-        <Navbar className="nav" light expand="md">
-          <NavbarBrand href="/question">Jogar</NavbarBrand>
-          <NavbarBrand href="/ranking">Ranking</NavbarBrand>
-
-
-        </Navbar>
-      </div>
+    <Container>
+      <Header />
       <div className="inform">
         <Button onClick={async () => {
           console.log("QUESTION", question);
@@ -107,9 +101,7 @@ export default function QuestionPanel() {
           </InputGroup>
         </Jumbotron>
       </div>
-      <div className="footer">
-        <p>Copyright</p>
-      </div>
-    </div>
+      <footer />
+    </Container>
   );
 }
