@@ -1,30 +1,34 @@
 import { getToken, getId } from "../../../utils/auth";
+import axios from "axios";
 
-export function createAnswer(id) {
-    console.log(id);
+export async function createAnswer(id) {
+
     const url = `http://localhost:8060/v1/answers`;
+
     const token = getToken();
     const body = {
         id_alternative: id,
-        id_user: getId()
-    }
-    const options = {
-        method: "post",
-        headers: {
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify(body)
+        id_user : parseInt(getId())
     }
 
-    fetch(url, options).then(res => {
-        if (!res.ok) {
-            res.json().then(data => {
-                alert(data.message);
-            }).catch(err => {
-                console.log(err);
-            });
-        } else {
-            return res.json();
-        }
-    });
+    let request = await axios
+        .post(url, body,
+            {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            }
+        ).then(res => {
+            if (res.status !== 200) {
+                alert("houve algum erro ao responder sua pergunta tenten novamente..");
+                return res;
+            }
+            return res;
+        }).catch(err => {
+            alert("houve algum erro ao responder sua pergunta tente novamente..");
+            return err;
+        });
+
+    return request;
+
 }

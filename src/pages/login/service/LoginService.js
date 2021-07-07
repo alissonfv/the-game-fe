@@ -17,11 +17,13 @@ export function loginRequest(username, password) {
                         body: JSON.stringify(bodyRequest)
                 };
 
+                console.log(options);
+
                 fetch(url, options).then(res => {
                         if (!res.ok) {
                                 res.json().then(data => {
                                         alert(data.message);
-                                        window.location.href = '/';
+                                      //  window.location.href = '/';
                                 }).catch(err => {
                                         console.log(err);
                                 });
