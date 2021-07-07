@@ -1,20 +1,30 @@
-import { getToken } from "../../../utils/auth";
-const axios = require('axios');
+import { getToken, getId } from "../../../utils/auth";
 
-
-export async function createAnswer(){
+export function createAnswer(id) {
+    console.log(id);
     const url = `http://localhost:8060/v1/answers`;
     const token = getToken();
-    const option = {
-        "id_alternative" : 2,
-        "id_user" : 2
+    const body = {
+        id_alternative: id,
+        id_user: getId()
+    }
+    const options = {
+        method: "post",
+        headers: {
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(body)
     }
 
-    let config = {
-        headers: {
-           Authorization: token
+    fetch(url, options).then(res => {
+        if (!res.ok) {
+            res.json().then(data => {
+                alert(data.message);
+            }).catch(err => {
+                console.log(err);
+            });
+        } else {
+            return res.json();
         }
-     }
-
-    return await axios.post(url,option, config);
+    });
 }
