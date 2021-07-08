@@ -2,7 +2,7 @@ import { getToken } from "../../../utils/auth";
 import Queue from "../../../utils/queue";
 
 export async function questionRequest (){
-    const url = `http://127.0.0.1:8060/v1/questions`;
+    const url = `http://localhost:8060/v1/questions`;
     const token = getToken();
     const options = {
         method: 'get',
@@ -13,10 +13,12 @@ export async function questionRequest (){
 
     let res = await fetch(url, options);
     let data = await res.json();
-    let queue = new Queue(); 
+    // let queue = new Queue();
 
-    for (let i= 0; i < data.length;i++) {
-        queue.inserting(data[i]);
-    };
-    return queue;
+    // for (let i= 0; i < data.length;i++) {
+    //     queue.inserting(data[i]);
+    // };
+    console.log(data);
+
+    return data;
 }

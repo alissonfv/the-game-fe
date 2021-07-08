@@ -1,107 +1,122 @@
-import { React, useState, useEffect } from 'react';
+import React from 'react';
 import { Container, Navbar, NavbarBrand, Button } from 'react-bootstrap';
 import { createAnswer } from '../pages/answer/answerService/answerService'
 import { questionRequest } from '../pages/question/service/questionService'
 import '../index.css';
 import { InputGroup, Label, InputGroupText, Input, FormGroup, Jumbotron } from 'reactstrap';
-import Queue from '../utils/queue';
 import Header from './header';
 
-export default function QuestionPanel() {
+export default class QuestionPanel extends React.Component {
+  constructor(props) {
+    super(props);
 
-  const [questions, setQuestions] = useState(new Queue());
-  const [question, setQuestion] = useState();
-  const [alternative, setAlternative] = useState(null);
+    this.setQuestions();
+  }
 
-  useEffect(() => {
-    async function getQuestions() {
-      setQuestions(await questionRequest());
-      console.log("QUESTIONS", questions);
-      console.log("NEXT", questions.next());
-      setQuestion(questions.next());
-    }
-    getQuestions();
-  }, []);
+  async setQuestions() {
+    var data = await questionRequest();
+    this.setState({
+      questions: data,
+      question: data[0],
+      size: 1,
+    });
+    console.log(this.state);
+  }
 
-  return (
-    <Container>
-      <Header />
-      <div className="inform">
-        <Button onClick={async () => {
-          console.log("QUESTION", question);
-          let data = await createAnswer()
+  render() {
+    return (
+      <Container>
+        <Header />
+        <div className="inform">
+          <Button onClick={async () => {
+            if (this.state.size === 10) {
+              window.location.href = '/points';
+              return;
+            }
 
-          if (data.status === 200) {
-            if (questions.elements.length > 1) {
-              questions.removing();
-              setQuestion(questions.next());
-            };
-          }
+            let data = await createAnswer(this.state.alternative);
+            console.log(data);
+            if (data.status !== 200) {
+              this.setState({
+                question: this.state.questions[0]
+              })
+              return;
+            }
+            if (this.state.size <= 10) {
+              this.setState({
+                question: this.state.questions[this.state.size],
+                size: this.state.size + 1
+              })
+              console.log(this.state);
+            }
+          }}>Next</Button>
+          <Jumbotron>
+            <p className="questions">
+              {this.state && this.state.question && this.state.question.question}
+            </p>
+          </Jumbotron>
+          <br /><br />
+          <Jumbotron>
 
-        }}>Next</Button>
-        <Jumbotron>
-          <p className="questions">{
-            // question && question.question
-          }</p>
-        </Jumbotron>
-        <br /><br />
-        <Jumbotron>
+            <InputGroup xs="auto">
+              <FormGroup check>
+                <Label check>
+                  <Input type="radio" name="radio1" onChange={e => { this.setState({ alternative: this.state.question.alternatives[0].id }) }} />
+                </Label>
+              </FormGroup>
+              <Input className="alternativa" value={this.state && this.state.question && this.state.question.alternatives[0] && this.state.question.alternatives[0].alternative}
+              />
+            </InputGroup>
 
-          <InputGroup xs="auto">
-            <FormGroup check>
-              <Label check>
-                <Input type="radio" name="radio1" />{' '}
-              </Label>
-            </FormGroup>
-            <Input className="alternativa" placeholder="Alternativa 2"
-            />
-          </InputGroup>
+            <InputGroup xs="auto">
+              <FormGroup check>
+                <Label check>
+                  <Input type="radio" name="radio1" onChange={e => { this.setState({ alternative: this.state.question.alternatives[1].id }) }} />
+                </Label>
+              </FormGroup>
+              <Input className="alternativa" value={this.state && this.state.question && this.state.question.alternatives[1] && this.state.question.alternatives[1].alternative}
+              />
+            </InputGroup>
 
-          <InputGroup xs="auto">
-            <FormGroup check>
-              <Label check>
-                <Input type="radio" name="radio1" />{' '}
-              </Label>
-            </FormGroup>
-            <Input className="alternativa" placeholder="Alternativa 2"
-            />
-          </InputGroup>
+            <InputGroup>
+              <FormGroup check>
+                <Label check>
+                  <Input type="radio" name="radio1" onChange={e => { this.setState({ alternative: this.state.question.alternatives[2].id }) }} />
+                </Label>
+              </FormGroup>
+              <Input className="alternativa" value={this.state && this.state.question && this.state.question.alternatives[2] && this.state.question.alternatives[2].alternative}
+              />
+            </InputGroup>
 
-          <InputGroup>
-            <FormGroup check>
-              <Label check>
-                <Input type="radio" name="radio1" />{' '}
-              </Label>
-            </FormGroup>
-            <Input className="alternativa" placeholder="Alternativa 3"
-            />
-          </InputGroup>
+            <InputGroup>
+              <FormGroup check>
+                <Label check>
+                  <Input type="radio" name="radio1" onChange={e => { this.setState({ alternative: this.state.question.alternatives[3].id }) }} />
+                </Label>
+              </FormGroup>
+              <Input className="alternativa" value={this.state && this.state.question && this.state.question.alternatives[3] && this.state.question.alternatives[3].alternative}
 
-          <InputGroup>
-            <FormGroup check>
-              <Label check>
-                <Input type="radio" name="radio1" />{' '}
-              </Label>
-            </FormGroup>
-            <Input className="alternativa" placeholder="Alternativa 4"
+              />
+            </InputGroup>
 
-            />
-          </InputGroup>
+            <InputGroup>
+              <FormGroup check>
+                <Label  >
+                  <Input
+                    type="radio" name="radio1" onChange={e => { this.setState({ alternative: this.state.question.alternatives[4].id }) }} />
+                </Label>
+              </FormGroup>
+              <Input
+                className="alternativa"
+                value={this.state && this.state.question && this.state.question.alternatives[4]
+                  && this.state.question.alternatives[4].alternative}
 
-          <InputGroup>
-            <FormGroup check>
-              <Label  >
-                <Input
-                  type="radio" name="radio1" />{' '}
-              </Label>
-            </FormGroup>
-            <Input className="alternativa" placeholder="Alternativa 5"
-
-            />
-          </InputGroup>
-        </Jumbotron>
-      </div>
-      <footer />
-    </Container>
-  );
+              />
+            </InputGroup>
+          </Jumbotron>
+        </div>
+        <footer />
+      </Container>
+    );
+  }
 }

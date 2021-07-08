@@ -8,7 +8,7 @@ export function loginRequest(username, password) {
                         login: username,
                         password: password
                 };
-                const url = 'http://3.86.204.122:8060/v1/login';
+                const url = 'http://localhost:8060/v1/login';
                 const options = {
                         method: 'post',
                         headers: {
@@ -17,11 +17,13 @@ export function loginRequest(username, password) {
                         body: JSON.stringify(bodyRequest)
                 };
 
+                console.log(options);
+
                 fetch(url, options).then(res => {
                         if (!res.ok) {
                                 res.json().then(data => {
                                         alert(data.message);
-                                        window.location.href = '/';
+                                      window.location.href = '/';
                                 }).catch(err => {
                                         console.log(err);
                                 });
@@ -29,7 +31,7 @@ export function loginRequest(username, password) {
                                 return res.json();
                         }
                 }).then(data => {
-                        login(data.token);
+                        login(data.token, data.id);
                         window.location.href = '/ranking';
                 }).catch(err => {
                         console.log(err);
