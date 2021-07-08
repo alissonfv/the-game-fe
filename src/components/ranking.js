@@ -2,6 +2,8 @@ import { React, useEffect, useState } from 'react';
 import { Table, Navbar, NavbarBrand } from 'reactstrap';
 import { rankingRequest } from '../pages/ranking/service/rankingService';
 import '../index.css';
+import Header from './header';
+import { Container } from 'react-bootstrap';
 
 export default function Ranking() {
   const [ranking, setRanking] = useState([]);
@@ -13,11 +15,8 @@ export default function Ranking() {
     getRanking();
   }, [option]);
   return (
-    <div>
-        <Navbar>
-      <NavbarBrand href="/question">Jogar</NavbarBrand>
-      <NavbarBrand href="/ranking">Ranking</NavbarBrand>
-      </Navbar>
+    <Container>
+       <Header />
     <Table className="rankingPanel" xs="auto" >
       <thead>
         <tr >
@@ -36,6 +35,6 @@ export default function Ranking() {
         })}
       </tbody>
     </Table>
-    </div >
+    </Container >
   );
 }
