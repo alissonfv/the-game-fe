@@ -1,8 +1,8 @@
 import { getToken } from "../utils/auth";
 import Config from '../utils/config'
 
-
 export async function rankingRequest(option) {
+
     const config = new Config();
     const url = `${config.URL}:${config.PORT}/v1/rankings/${option}`;
     const token = getToken();
@@ -17,7 +17,6 @@ export async function rankingRequest(option) {
 
     let res = await fetch(url, options);
     let data = await res.json();
-
     let name;
     let points;
     let newState;
