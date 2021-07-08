@@ -23,7 +23,7 @@ export function loginRequest(username, password) {
                         if (!res.ok) {
                                 res.json().then(data => {
                                         alert(data.message);
-                                      //  window.location.href = '/';
+                                      window.location.href = '/';
                                 }).catch(err => {
                                         console.log(err);
                                 });

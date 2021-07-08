@@ -4,8 +4,6 @@ import { createAnswer } from '../pages/answer/answerService/answerService'
 import { questionRequest } from '../pages/question/service/questionService'
 import '../index.css';
 import { InputGroup, Label, InputGroupText, Input, FormGroup, Jumbotron } from 'reactstrap';
-import Queue from '../utils/queue';
-import { Alert } from 'bootstrap';
 
 export default class QuestionPanel extends React.Component {
   constructor(props) {
@@ -37,10 +35,8 @@ export default class QuestionPanel extends React.Component {
         </div>
         <div className="inform">
           <Button onClick={async () => {
-            console.log("IGHUUUULÇ", this.state.size)
             if(this.state.size === 10){
-              // fazer chamada de outra tela com a pontuação do jovem :D
-              alert("Voce ja respondeu todas as perguntas :D")
+              window.location.href = '/points';
               return;
             }
 
@@ -81,7 +77,7 @@ export default class QuestionPanel extends React.Component {
             <InputGroup xs="auto">
               <FormGroup check>
                 <Label check>
-                  <Input type="radio" name="radio1" />
+                  <Input type="radio" name="radio1" onChange={e => { this.setState({ alternative: this.state.question.alternatives[1].id }) }} />
                 </Label>
               </FormGroup>
               <Input className="alternativa" value={this.state && this.state.question && this.state.question.alternatives[1] && this.state.question.alternatives[1].alternative}
@@ -91,7 +87,7 @@ export default class QuestionPanel extends React.Component {
             <InputGroup>
               <FormGroup check>
                 <Label check>
-                  <Input type="radio" name="radio1" />
+                  <Input type="radio" name="radio1" onChange={e => { this.setState({ alternative: this.state.question.alternatives[2].id }) }} />
                 </Label>
               </FormGroup>
               <Input className="alternativa" value={this.state && this.state.question && this.state.question.alternatives[2] && this.state.question.alternatives[2].alternative}
@@ -101,7 +97,7 @@ export default class QuestionPanel extends React.Component {
             <InputGroup>
               <FormGroup check>
                 <Label check>
-                  <Input type="radio" name="radio1" />
+                  <Input type="radio" name="radio1" onChange={e => { this.setState({ alternative: this.state.question.alternatives[3].id }) }} />
                 </Label>
               </FormGroup>
               <Input className="alternativa" value={this.state && this.state.question && this.state.question.alternatives[3] && this.state.question.alternatives[3].alternative}
@@ -113,7 +109,7 @@ export default class QuestionPanel extends React.Component {
               <FormGroup check>
                 <Label  >
                   <Input
-                    type="radio" name="radio1" />
+                    type="radio" name="radio1" onChange={e => { this.setState({ alternative: this.state.question.alternatives[4].id }) }} />
                 </Label>
               </FormGroup>
               <Input

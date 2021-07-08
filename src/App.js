@@ -6,6 +6,7 @@ import LoginUser from './components/login';
 import CreateUser from './components/informationsLogin';
 import Questions from './components/question';
 import Ranking from './components/ranking';
+import Points from './components/points';
 import { isAuth } from './utils/auth';
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route path='/question' render = {()=>
             isAuth() ? (<Questions/>) : (<Redirect to ='/'/>)
+          }/>
+          <Route path='/points' render = {()=>
+            isAuth() ? (<Points/>) : (<Redirect to ='/'/>)
           }/>
         </Switch>
       </Router>
