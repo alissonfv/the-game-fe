@@ -18,10 +18,10 @@ export default function LoginUser() {
                 <Form>
                     <Col>
                         <div className="bgbuttons">
-                            <Row xs="auto" className="mb-3 w-25" >
+                            <Row xs="auto" className="mb-3 w-150" >
                                 <Form.Control type="text" onChange={e => setLogin(e.target.value)} maxLength={30} placeholder="Login" required />
                             </Row>
-                            <Row xs="auto" className="mb-3 w-25">
+                            <Row xs="auto" className="mb-3 w-150">
                                 <Form.Control type="password" onChange={e => setPassword(e.target.value)} placeholder="Senha" required />
                             </Row>
                             <Row>
