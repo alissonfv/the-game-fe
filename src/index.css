@@ -94,6 +94,10 @@ code {
   position: relative;
   left: 0;
   border-color: red ;
+  
+}
+.space{
+  flex: 1;
 }
 
 .display-2{

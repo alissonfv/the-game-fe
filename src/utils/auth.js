@@ -30,7 +30,7 @@ export const removePoints = () => {
 
 export const logout = () => {
     localStorage.removeItem(TOKEN_KEY);
-    window.location.hrel = '/';
+    window.location.href = '/';
 }
 
 export const getId = () => {
