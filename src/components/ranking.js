@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from 'react';
 import { Table, Navbar, NavbarBrand } from 'reactstrap';
-import { rankingRequest } from '../pages/ranking/service/rankingService';
+import { rankingRequest } from '../service/rankingService';
 import '../index.css';
 import Header from './header';
 import { Container } from 'react-bootstrap';

@@ -1,11 +1,12 @@
-import { getToken, getId } from "../../../utils/auth";
+import { getToken, getId } from "../utils/auth";
 import axios from "axios";
-import { savePoints } from "../../../utils/auth";
+import { savePoints } from "../utils/auth";
+import Config from '../utils/config'
 
 
 export async function createAnswer(id) {
-
-    const url = `http://localhost:8060/v1/answers`;
+    const config = new Config();
+    const url = `${config.URL}:${config.PORT}/v1/answers`;
 
     const token = getToken();
     const body = {

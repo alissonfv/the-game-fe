@@ -1,7 +1,10 @@
-import { getToken } from "../../../utils/auth";
+import { getToken } from "../utils/auth";
+import Config from '../utils/config'
+
 
 export async function rankingRequest(option) {
-    const url = `http://127.0.0.1:8060/v1/rankings/${option}`;
+    const config = new Config();
+    const url = `${config.URL}:${config.PORT}/v1/rankings/${option}`;
     const token = getToken();
     const options = {
         method: 'get',

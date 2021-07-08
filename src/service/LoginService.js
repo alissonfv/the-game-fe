@@ -1,6 +1,9 @@
-import { login } from '../../../utils/auth'
+import { login } from '../utils/auth'
+import Config from '../utils/config'
+
 
 export function loginRequest(username, password) {
+        const config = new Config();
         if (username === null || password === null) {
                 window.location.href = '/';
         } else {
@@ -8,7 +11,7 @@ export function loginRequest(username, password) {
                         login: username,
                         password: password
                 };
-                const url = 'http://localhost:8060/v1/login';
+                const url = `${config.URL}:${config.PORT}/v1/login`;
                 const options = {
                         method: 'post',
                         headers: {

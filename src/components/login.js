@@ -1,8 +1,8 @@
 import { React, useState } from 'react';
 import {FormGroup , FormFeedback, FormText} from 'reactstrap';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { loginRequest } from '../pages/login/service/LoginService.js';
-import { redirectCreateAccount } from '../pages/login/service/CreateUserService.js';
+import { loginRequest } from '../service/LoginService';
+import { redirectCreateAccount } from '../service/CreateUserService.js';
 import '../index.css';
 
 
@@ -18,10 +18,10 @@ export default function LoginUser() {
                 <Form>
                     <Col>
                         <div className="bgbuttons">
-                            <Row xs="auto" className="mb-3 w-25" >
+                            <Row xs="auto" className="mb-3 w-150" >
                                 <Form.Control type="text" onChange={e => setLogin(e.target.value)} maxLength={30} placeholder="Login" required />
                             </Row>
-                            <Row xs="auto" className="mb-3 w-25">
+                            <Row xs="auto" className="mb-3 w-150">
                                 <Form.Control type="password" onChange={e => setPassword(e.target.value)} placeholder="Senha" required />
                             </Row>
                             <Row>
