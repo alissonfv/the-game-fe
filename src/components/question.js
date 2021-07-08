@@ -1,23 +1,24 @@
 import React from 'react';
-import { Container, Navbar, NavbarBrand} from 'react-bootstrap';
+import { Container, Navbar, NavbarBrand } from 'react-bootstrap';
 import { createAnswer } from '../pages/answer/answerService/answerService'
 import { questionRequest } from '../pages/question/service/questionService'
 import '../index.css';
-import { InputGroup, Label, InputGroupText,Button, Input, FormGroup, Jumbotron } from 'reactstrap';
+import { InputGroup, Label, InputGroupText, Button, Input, FormGroup, Jumbotron } from 'reactstrap';
 import Header from './header';
+import Queue from '../utils/queue';
 
 export default class QuestionPanel extends React.Component {
   constructor(props) {
     super(props);
-
+    this.queue = new Queue();
     this.setQuestions();
   }
 
   async setQuestions() {
-    var queue = await questionRequest();
+    this.queue = await questionRequest();
     this.setState({
-      questions: queue,
-      question: queue.next(),
+      questions: this.queue,
+      question: this.queue.next(),
       size: 1,
     });
     console.log(this.state);
@@ -30,7 +31,7 @@ export default class QuestionPanel extends React.Component {
         <div className="inform">
           <Jumbotron>
             <p className="questions">
-              {this.state && this.state.question && this.state.question.question} Questao
+              {this.state && this.state.question && this.state.question.question}
             </p>
           </Jumbotron>
           <br /><br />
@@ -96,20 +97,20 @@ export default class QuestionPanel extends React.Component {
           <Button color="info" onClick={async () => {
             if (this.state.size === 10) {
               window.location.href = '/points';
-              return;
             }
 
             let data = await createAnswer(this.state.alternative);
             console.log(data);
             if (data.status !== 200) {
               this.setState({
-                question: this.state.questions[0]
+                question: this.queue.next()
               })
               return;
             }
-            if (this.state.size <= 10) {
+            if (this.queue.next() != null) {
+              this.queue.removing();
               this.setState({
-                question: this.state.questions[this.state.size],
+                question: this.queue.next(),
                 size: this.state.size + 1
               })
               console.log(this.state);
