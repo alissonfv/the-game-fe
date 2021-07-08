@@ -1,8 +1,11 @@
-import { getToken } from "../../../utils/auth";
-import Queue from "../../../utils/queue";
+import { getToken } from "../utils/auth";
+import Queue from "../utils/queue";
+import Config from '../utils/config'
+
 
 export async function questionRequest (){
-    const url = `http://localhost:8060/v1/questions`;
+    const config = new Config();
+    const url = `${config.URL}:${config.PORT}/v1/questions`;
     const token = getToken();
     const options = {
         method: 'get',

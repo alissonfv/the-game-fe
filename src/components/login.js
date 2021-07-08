@@ -1,8 +1,8 @@
 import { React, useState } from 'react';
 import {FormGroup , FormFeedback, FormText} from 'reactstrap';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { loginRequest } from '../pages/login/service/LoginService.js';
-import { redirectCreateAccount } from '../pages/login/service/CreateUserService.js';
+import { loginRequest } from '../service/LoginService';
+import { redirectCreateAccount } from '../service/CreateUserService.js';
 import '../index.css';
 
 

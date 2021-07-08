@@ -1,9 +1,9 @@
 import '../index.css';
 import React from 'react';
-import { Container} from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { InputGroup, Label, Button, Input, FormGroup, Jumbotron } from 'reactstrap';
-import { createAnswer } from '../pages/answer/answerService/answerService'
-import { questionRequest } from '../pages/question/service/questionService'
+import { createAnswer } from '../service/answerService'
+import { questionRequest } from '../service/questionService'
 import { removePoints } from '../utils/auth';
 import Header from './header';
 import Footer from './footer';
@@ -57,7 +57,7 @@ export default class QuestionPanel extends React.Component {
                   </InputGroup>
                 )
               })
-            : "" 
+              : ""
             }
 
           </Jumbotron>

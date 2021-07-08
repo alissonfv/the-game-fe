@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {FormGroup , FormFeedback, FormText} from 'reactstrap';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import {loginRequest} from '../pages/login/service/LoginService';
+import {loginRequest} from '../service/LoginService';
 import '../index.css';
 
 export default function informationLogin() {
