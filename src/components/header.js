@@ -15,7 +15,7 @@ export default function Header() {
         </Nav>
         <div className="space" />
         <Nav>
-          <NavLink onClick={logout()} >Logout</NavLink>
+          <NavLink onClick={() => logout()} >Logout</NavLink>
         </Nav>
       </Navbar>
     </Container>
