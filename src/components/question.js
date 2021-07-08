@@ -1,9 +1,9 @@
 import React from 'react';
-import { Container, Navbar, NavbarBrand, Button } from 'react-bootstrap';
+import { Container, Navbar, NavbarBrand} from 'react-bootstrap';
 import { createAnswer } from '../pages/answer/answerService/answerService'
 import { questionRequest } from '../pages/question/service/questionService'
 import '../index.css';
-import { InputGroup, Label, InputGroupText, Input, FormGroup, Jumbotron } from 'reactstrap';
+import { InputGroup, Label, InputGroupText,Button, Input, FormGroup, Jumbotron } from 'reactstrap';
 import Header from './header';
 
 export default class QuestionPanel extends React.Component {
@@ -28,31 +28,9 @@ export default class QuestionPanel extends React.Component {
       <Container>
         <Header />
         <div className="inform">
-          <Button onClick={async () => {
-            if (this.state.size === 10) {
-              window.location.href = '/points';
-              return;
-            }
-
-            let data = await createAnswer(this.state.alternative);
-            console.log(data);
-            if (data.status !== 200) {
-              this.setState({
-                question: this.state.questions[0]
-              })
-              return;
-            }
-            if (this.state.size <= 10) {
-              this.setState({
-                question: this.state.questions[this.state.size],
-                size: this.state.size + 1
-              })
-              console.log(this.state);
-            }
-          }}>Next</Button>
           <Jumbotron>
             <p className="questions">
-              {this.state && this.state.question && this.state.question.question}
+              {this.state && this.state.question && this.state.question.question} Questao
             </p>
           </Jumbotron>
           <br /><br />
@@ -114,6 +92,29 @@ export default class QuestionPanel extends React.Component {
               />
             </InputGroup>
           </Jumbotron>
+          <br />
+          <Button color="info" onClick={async () => {
+            if (this.state.size === 10) {
+              window.location.href = '/points';
+              return;
+            }
+
+            let data = await createAnswer(this.state.alternative);
+            console.log(data);
+            if (data.status !== 200) {
+              this.setState({
+                question: this.state.questions[0]
+              })
+              return;
+            }
+            if (this.state.size <= 10) {
+              this.setState({
+                question: this.state.questions[this.state.size],
+                size: this.state.size + 1
+              })
+              console.log(this.state);
+            }
+          }}>Próximo</Button>
         </div>
         <footer />
       </Container>
