@@ -9,7 +9,7 @@ import Ranking from './components/ranking';
 import Points from './components/points';
 import { isAuth } from './utils/auth';
 
-function App() {
+export default function App() {
   return (
     <LayoutTheGame>
       <Router>
@@ -34,5 +34,3 @@ function App() {
     </LayoutTheGame>
   );
 }
-
-export default App;

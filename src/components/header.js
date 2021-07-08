@@ -1,6 +1,7 @@
 import { Container, Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'react-bootstrap';
 import '../index.css';
 import { logout } from '../utils/auth';
+
 export default function Header() {
   return (
     <Container className="header">

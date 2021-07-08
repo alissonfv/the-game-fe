@@ -3,7 +3,6 @@ import axios from "axios";
 import { savePoints } from "../utils/auth";
 import Config from '../utils/config'
 
-
 export async function createAnswer(id) {
     const config = new Config();
     const url = `${config.URL}:${config.PORT}/v1/answers`;
@@ -11,7 +10,7 @@ export async function createAnswer(id) {
     const token = getToken();
     const body = {
         id_alternative: id,
-        id_user : parseInt(getId())
+        id_user: parseInt(getId())
     }
 
     let request = await axios
@@ -26,21 +25,15 @@ export async function createAnswer(id) {
                 alert("houve algum erro ao responder sua pergunta tenten novamente..");
                 return res;
             }
-
-            console.log(res.data.is_right);
-
-            if(res.data.is_right){
+            
+            if (res.data.is_right) {
                 savePoints()
             }
-
             return res;
         }).catch(err => {
             alert("houve algum erro ao responder sua pergunta tente novamente..");
             return err;
         });
 
-        
-
     return request;
-
 }

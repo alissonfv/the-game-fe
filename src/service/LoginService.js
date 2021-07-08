@@ -1,7 +1,6 @@
 import { login } from '../utils/auth'
 import Config from '../utils/config'
 
-
 export function loginRequest(username, password) {
         const config = new Config();
         if (username === null || password === null) {
@@ -26,7 +25,7 @@ export function loginRequest(username, password) {
                         if (!res.ok) {
                                 res.json().then(data => {
                                         alert(data.message);
-                                      window.location.href = '/';
+                                        window.location.href = '/';
                                 }).catch(err => {
                                         console.log(err);
                                 });
