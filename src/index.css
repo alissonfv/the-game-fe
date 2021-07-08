@@ -88,3 +88,6 @@ code {
   border-color: red ;
   
 }
+.space{
+  flex: 1;
+}
