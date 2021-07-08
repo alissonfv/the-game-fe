@@ -26,10 +26,10 @@ export default class QuestionPanel extends React.Component {
   render() {
     return (
       <Container>
-      <Header />
-      <div className="inform">
+        <Header />
+        <div className="inform">
           <Button onClick={async () => {
-            if(this.state.size === 10){
+            if (this.state.size === 10) {
               window.location.href = '/points';
               return;
             }
@@ -111,11 +111,12 @@ export default class QuestionPanel extends React.Component {
                 value={this.state && this.state.question && this.state.question.alternatives[4]
                   && this.state.question.alternatives[4].alternative}
 
-            />
-          </InputGroup>
-        </Jumbotron>
-      </div>
-      <footer />
-    </Container>
-  );
+              />
+            </InputGroup>
+          </Jumbotron>
+        </div>
+        <footer />
+      </Container>
+    );
+  }
 }
