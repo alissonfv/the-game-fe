@@ -14,10 +14,10 @@ export default class QuestionPanel extends React.Component {
   }
 
   async setQuestions() {
-    var data = await questionRequest();
+    var queue = await questionRequest();
     this.setState({
-      questions: data,
-      question: data[0],
+      questions: queue,
+      question: queue.next(),
       size: 1,
     });
     console.log(this.state);
