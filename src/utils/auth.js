@@ -13,7 +13,7 @@ export const login = (token, id) => {
     }
 }
 export const savePoints = () => {
-    if (getPoints() == null) {
+    if (!getPoints()) {
         localStorage.setItem(POINTS, 1);
         return;
     }
@@ -25,7 +25,7 @@ export const getPoints = () => {
 }
 
 export const removePoints = () => {
-    return localStorage.removeItem(POINTS);
+    localStorage.removeItem(POINTS);
 }
 
 export const logout = () => {

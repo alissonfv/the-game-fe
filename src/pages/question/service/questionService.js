@@ -13,12 +13,12 @@ export async function questionRequest (){
 
     let res = await fetch(url, options);
     let data = await res.json();
-    // let queue = new Queue();
+    let queue = new Queue();
 
-    // for (let i= 0; i < data.length;i++) {
-    //     queue.inserting(data[i]);
-    // };
-    console.log(data);
+    for (let i= 0; i < data.length;i++) {
+        queue.inserting(data[i]);
+    };
+    console.log(queue);
 
-    return data;
+    return queue;
 }
