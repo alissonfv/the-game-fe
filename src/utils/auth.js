@@ -13,7 +13,7 @@ export const login = (token, id) => {
     }
 }
 export const savePoints = () => {
-    if (getPoints() == null) {
+    if (!getPoints()) {
         localStorage.setItem(POINTS, 1);
         return;
     }

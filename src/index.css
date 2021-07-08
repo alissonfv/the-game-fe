@@ -48,7 +48,12 @@ code {
 
 }
 .question{
- padding: 25px;
+  position: relative;
+  text-align: center;
+  background-color: #ffffff;
+  opacity: 0.8;
+  font-size: 25px;
+  color: #000000
 }
 .textArea{
   position: relative;
@@ -71,9 +76,14 @@ code {
   font-size: 25px;
   color: #000000
 }
-.alternativa{
-  padding: 50px;
-  margin-top: 10px;
+
+.alternative {
+  position: relative;
+  text-align: center;
+  background-color: #ffffff;
+  opacity: 0.8;
+  font-size: 20px;
+  color: #000000
 }
 
 .nav{
