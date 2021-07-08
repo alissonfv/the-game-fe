@@ -3,8 +3,8 @@ import '../index.css';
 import { logout } from '../utils/auth';
 
 export default function Header() {
-  return (
-    <Container className="header">
+    return (
+      <Container className="header">
       <Navbar color="light" light expand="md">
         <Nav className="mr-auto" navbar>
           <NavItem>
@@ -20,5 +20,5 @@ export default function Header() {
         </Nav>
       </Navbar>
     </Container>
-  );
+    );
 }
