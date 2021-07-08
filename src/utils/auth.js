@@ -25,7 +25,7 @@ export const getPoints = () => {
 }
 
 export const removePoints = () => {
-    return localStorage.removeItem(POINTS);
+    localStorage.removeItem(POINTS);
 }
 
 export const logout = () => {

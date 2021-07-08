@@ -6,12 +6,14 @@ import '../index.css';
 import { InputGroup, Label, InputGroupText, Button, Input, FormGroup, Jumbotron } from 'reactstrap';
 import Header from './header';
 import Queue from '../utils/queue';
+import { removePoints } from '../utils/auth';
 
 export default class QuestionPanel extends React.Component {
   constructor(props) {
     super(props);
     this.queue = new Queue();
     this.setQuestions();
+    removePoints();
   }
 
   async setQuestions() {
