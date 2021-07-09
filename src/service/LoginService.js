@@ -4,6 +4,7 @@ import Config from '../utils/config'
 export function loginRequest(username, password) {
         const config = new Config();
         if (username === null || password === null) {
+                alert("Os campos são obrigatórios!");
                 window.location.href = '/';
         } else {
                 const bodyRequest = {
