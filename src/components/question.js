@@ -61,10 +61,7 @@ export default class QuestionPanel extends React.Component {
           </Jumbotron>
           <br />
           <Button color="info" onClick={async () => {
-            if (this.state.size === 10) {
-              window.location.href = '/points';
-            }
-
+      
             let data = await createAnswer(this.state.alternative);
             if (data.status !== 200) {
               this.setState({
@@ -72,6 +69,11 @@ export default class QuestionPanel extends React.Component {
               })
               return;
             }
+
+            if (this.state.size === 10 ) {
+              window.location.href = '/points';
+            }
+            
             if (this.queue.next() != null) {
               this.queue.removing();
               this.setState({
