@@ -22,8 +22,11 @@ Assim sendo, clone esse projeto no repositório do git:
  <h3>Tecnologias </h3>
 <p>As seguintes ferramentas foram usadas na construção do projeto:</p>
 
+- [JavaScript]()
 - [React](https://pt-br.reactjs.org/)
 - [React Bootstrap](https://react-bootstrap.github.io/)
+- [Axios]()
+- [ReactStrap]()
 
  
  <h3> Como rodar o projeto </h3>
