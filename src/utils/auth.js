@@ -30,6 +30,8 @@ export const removePoints = () => {
 
 export const logout = () => {
     localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(ID_USER);
+    removePoints();
     window.location.href = '/';
 }
 
