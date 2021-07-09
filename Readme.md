@@ -31,10 +31,9 @@ Assim sendo, clone esse projeto no repositório do git:
  
  <h3> Como rodar o projeto </h3>
 
-PARA QUE SEJA POSSÍVEL EXECUTAR O PROJETO 
 Para que seja executado é necessário que o gerenciado de pacotes do JavaScript -(NPM) esteja já instalado na máquina que será clonado esse repositório
 
-*(Instalação o gerenciador de pacotes do Node.JS-(NPM)
+*(Instalação do gerenciador de pacotes do Node.JS-(NPM)
 
  npm install;  
 
