@@ -7,7 +7,7 @@ export default function LoginUser() {
     const [login, setLogin] = useState(null);
     const [password, setPassword] = useState(null);
 
-    
+
     return (
         <div minDeviceWidth={1224} device={{ deviceWidth: 1600 }} className="bgimg">
             <Container>
@@ -21,7 +21,7 @@ export default function LoginUser() {
                                 <Form.Control type="password" onChange={e => setPassword(e.target.value)} placeholder="Senha" required />
                             </Row>
                             <Row>
-                                <Col xs="auto" className="my-2" >
+                                <Col sm="12" md={{ size: 6, offset: 4 }}>
                                     <Button variant="light" onClick={() => loginRequest(login, password)}>Entrar</Button>
                                 </Col>
                             </Row>
