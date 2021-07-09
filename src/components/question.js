@@ -7,7 +7,6 @@ import { createAnswer } from '../service/answerService'
 import { questionRequest } from '../service/questionService'
 import { removePoints } from '../utils/auth';
 import Header from './header';
-import Footer from './footer';
 import Queue from '../utils/queue';
 
 export default class QuestionPanel extends React.Component {
@@ -87,7 +86,6 @@ export default class QuestionPanel extends React.Component {
               }
             }
           }}>Próximo</Button>
-        <Footer />
       </Container>
     );
   }

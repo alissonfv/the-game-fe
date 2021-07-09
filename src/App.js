@@ -3,7 +3,6 @@ import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom
 import './index.css';
 import LayoutTheGame from './components/layout';
 import LoginUser from './components/login';
-import CreateUser from './components/informationsLogin';
 import Questions from './components/question';
 import Ranking from './components/ranking';
 import Points from './components/points';
@@ -19,9 +18,6 @@ export default function App() {
           }/>
           <Route exact path='/'>
             <LoginUser></LoginUser>
-          </Route>
-          <Route exact path='/createAccount'>
-            <CreateUser></CreateUser>
           </Route>
           <Route path='/question' render = {()=>
             isAuth() ? (<Questions/>) : (<Redirect to ='/'/>)
